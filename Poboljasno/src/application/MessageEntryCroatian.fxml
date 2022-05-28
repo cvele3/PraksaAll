@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerEntry">
+   <children>
+      <Button layoutX="250.0" layoutY="319.0" mnemonicParsing="false" onAction="#entryAndEncription" prefHeight="25.0" prefWidth="101.0" text="Unos" />
+      <Label layoutX="47.0" layoutY="99.0" prefHeight="17.0" prefWidth="171.0" text="Unos poruke za enkripciju:" />
+      <Label layoutX="47.0" layoutY="199.0" prefHeight="17.0" prefWidth="171.0" text="Unos lozinke za enkripciju:" />
+      <TextField fx:id="messEntry" layoutX="198.0" layoutY="95.0" prefHeight="25.0" prefWidth="301.0" />
+      <TextField fx:id="encryptionPassword" layoutX="198.0" layoutY="195.0" prefHeight="25.0" prefWidth="301.0" />
+      <TextField fx:id="messName" layoutX="198.0" layoutY="145.0" prefHeight="25.0" prefWidth="301.0" />
+      <Label layoutX="47.0" layoutY="149.0" prefHeight="17.0" prefWidth="171.0" text="Naziv enkripitrane poruke:" />
+      <Button layoutX="221.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToHomeScreenCroatian" text="Povratak na početni zaslon" />
+      <Label layoutX="47.0" layoutY="251.0" prefHeight="17.0" prefWidth="171.0" text="SHA256 sažetak poruke:" />
+      <TextField fx:id="summarySHA" layoutX="47.0" layoutY="268.0" prefHeight="25.0" prefWidth="452.0" />
+   </children>
+</AnchorPane>

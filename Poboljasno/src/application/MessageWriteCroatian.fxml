@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerRead">
+   <children>
+      <ListView fx:id="allMessages" layoutX="60.0" layoutY="142.0" prefHeight="25.0" prefWidth="216.0" />
+      <Button fx:id="choseMessage" layoutX="276.0" layoutY="142.0" mnemonicParsing="false" onAction="#ButtonAction" text="Odaberi poruku" />
+      <Button layoutX="247.0" layoutY="344.0" mnemonicParsing="false" onAction="#switchToHomeScreenCroatian" text="Povratak na početni zaslon" />
+      <TextField fx:id="passwordEntry" layoutX="60.0" layoutY="40.0" prefHeight="17.0" prefWidth="216.0" />
+      <TextField fx:id="finalMessage" layoutX="59.0" layoutY="196.0" prefHeight="10.0" prefWidth="342.0" />
+      <Label layoutX="60.0" layoutY="23.0" prefHeight="17.0" prefWidth="100.0" text="1. Upiši lozinku:" />
+      <Label layoutX="59.0" layoutY="179.0" prefHeight="17.0" prefWidth="115.0" text="Dekriptirana poruka:" />
+      <Label layoutX="60.0" layoutY="125.0" prefHeight="17.0" prefWidth="108.0" text="3. Odabir poruke:" />
+      <Label layoutX="60.0" layoutY="74.0" prefHeight="17.0" prefWidth="140.0" text="2. Unos SHA256 sažetka:" />
+      <TextField fx:id="enteredSHA" layoutX="60.0" layoutY="91.0" prefHeight="25.0" prefWidth="418.0" />
+      <TextField fx:id="generatedSHA" layoutX="62.0" layoutY="256.0" prefHeight="25.0" prefWidth="418.0" />
+      <Label layoutX="62.0" layoutY="239.0" prefHeight="17.0" prefWidth="175.0" text="SHA256 sazetak tražene poruke:" />
+      <Label fx:id="integrity" layoutX="63.0" layoutY="290.0" prefHeight="38.0" prefWidth="290.0" />
+   </children>
+</AnchorPane>
