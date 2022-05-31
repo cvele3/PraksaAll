@@ -45,7 +45,6 @@ public class ControllerEntry {
 	private static final String DIRECTORY_STRING = "C:\\Directory1";
 	private static final String TXT_STRING = ".txt";
 	
-	Security caller = new Security();
 
 	public void switchToHomeScreenCroatian(ActionEvent e) {
 		try {
@@ -89,7 +88,7 @@ public class ControllerEntry {
 		
 	    byte[] ivb = new byte[16];
 	    new SecureRandom().nextBytes(ivb);
-		IvParameterSpec iv = caller.generateIv(ivb);
+		IvParameterSpec iv = Security.generateIv(ivb);
 		
 		
 		byte[] alt = new byte[64];
@@ -109,18 +108,18 @@ public class ControllerEntry {
 			e2.printStackTrace();
 		}
 		byte[] encodedhash = digest.digest(message.getBytes(StandardCharsets.UTF_8));
-		String hexString = caller.bytesToHex(encodedhash);
+		String hexString = Security.bytesToHex(encodedhash);
 		summarySHA.setText(hexString);
 		
 		try {
-			pass = caller.getKeyFromPassword(password,salt);
+			pass = Security.getKeyFromPassword(password,salt);
 			
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
 
 			e1.printStackTrace();
 		}
 		try {
-			encrypted = caller.encrypt(message, pass,iv);
+			encrypted = Security.encrypt(message, pass,iv);
 		} catch (InvalidKeyException | NoSuchPaddingException | NoSuchAlgorithmException
 				| InvalidAlgorithmParameterException | BadPaddingException | IllegalBlockSizeException e) {
 
@@ -181,7 +180,7 @@ public class ControllerEntry {
 
 		
 		try {
-			decrypted = caller.decrypt(encrypted, pass, iv);
+			decrypted = Security.decrypt(encrypted, pass, iv);
 		} catch (InvalidKeyException | NoSuchPaddingException | NoSuchAlgorithmException
 				| InvalidAlgorithmParameterException | BadPaddingException | IllegalBlockSizeException e) {
 

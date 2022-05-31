@@ -53,7 +53,6 @@ public class ControllerRead {
 	private static final String DIR_PATH_STRING = "C:\\Directory1\\Dir";
 	static String langString = null;
 	
-	Security caller = new Security();
 
 	public void switchToHomeScreenCroatian(ActionEvent e) {
 		try {
@@ -130,10 +129,10 @@ public class ControllerRead {
 	    String passwordString = passwordEntry.getText();
 	    String decryptedString = null;
 	    SecretKey pass = null;
-	    IvParameterSpec iv = caller.generateIv(ivb);
+	    IvParameterSpec iv = Security.generateIv(ivb);
 	    
 	    try {
-			pass = caller.getKeyFromPassword(passwordString,salt);
+			pass = Security.getKeyFromPassword(passwordString,salt);
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
 			e1.printStackTrace();
 		}
@@ -141,7 +140,7 @@ public class ControllerRead {
 	    
 	    
 	    try {
-	    	decryptedString = caller.decrypt(line, pass, iv);
+	    	decryptedString = Security.decrypt(line, pass, iv);
 		} catch (InvalidKeyException | NoSuchPaddingException | NoSuchAlgorithmException
 				| InvalidAlgorithmParameterException | IllegalBlockSizeException e) {
 
@@ -159,7 +158,7 @@ public class ControllerRead {
 		}
 		
 		byte[] encodedhash = digest.digest(decryptedString.getBytes(StandardCharsets.UTF_8));
-		String hexString = caller.bytesToHex(encodedhash);
+		String hexString = Security.bytesToHex(encodedhash);
 		generatedSHA.setText(hexString);
 		String tocanString = enteredSHA.getText();
 		
